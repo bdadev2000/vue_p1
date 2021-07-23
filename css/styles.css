@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+li{
+  list-style-type: none;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.nav-bar {
+    background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+    height: 60px;
+    margin-bottom: 100px;
+    -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+
+  }
+
+.add-info{
+  padding: 0px 0 20px 0;
+}
+
+li{
+  padding: 2px 0;
+}
+
+span{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+span.value{
+    color: grey;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.title h2{
+  font-size: 30px;
+  font-weight:700;
+}
+
+.price{
+  font-size: 20px;
+  color:#09b9ff;
+  padding: 5px 0;
+}
+
+
+.price span{
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.rating{
+  color: #ff9100;
+  padding: 5px 0 10px 0;
+}
+
+.title-option{
+  font-weight: 700;
+  font-size: 15px;
+  padding: 5px  0 5px 0;
+}
+
+.title-option span{
+  color:#09b9ff;
+  font-weight: 400;
+}
+
+.image-option {
+  margin-top: 40px;
+}
+
+.item{
+  margin-top: 50px;
+}
+
+.count-item{
+  width: 40px;
+  padding: 10px;
+  border: none;
+}
+
+.btn-add-to-cart{
+  width: 500px;
+}
