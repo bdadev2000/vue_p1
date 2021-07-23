@@ -20,76 +20,15 @@
 
     <div id="app">
       <div class="nav-bar"></div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center">
-                <img v-bind:src="image" alt="">
-            </div>
-            <div class="col-6">
-                <div class="add-info">
-                    <ul>
-                        <li class="sku-js">
-                            <span>SKU:</span>
-                            <span class="value">{{ items[0].code }}</span>
-                        </li>
-                        <li>
-                            <span>Availability:</span>
-                            <span v-if="inStock" class="value">In Stock</span>
-                            <span v-else class="value">Out Of Stock</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="title">
-                    <h2>{{ name }}</h2>
-                </div>
-                
-                <div class="price">
-                  <i class="fas fa-dollar-sign"></i>  
-                  <span> {{ items[0].price }} </span>
-                </div>
-
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-
-                <div class="title-option">
-                    COLOR:
-                    <span> {{ color }} </span>
-                </div>
-
-                <div class="image-option d-flex p-3">
-                    <div class="card m-2" style="width: 3rem;" v-for="item in items" :key="item.id" @mouseover="updateImage(item.image)">
-                        <img  v-bind:src="item.image"  class="card-img-top" alt="..." >
-                    </div>
-                </div>
-
-                <div class="d-flex item">
-                    <div class="count-item"> {{ cart }} </div>
-                    <button 
-                      type="button" 
-                      class="btn btn-primary btn-add-to-cart" 
-                      v-on:click="addToCart"
-                    >
-                        <i class="fas fa-shopping-bag"></i>
-                        Add To Cart
-                    </button>
-
-                </div>
-            </div>
-          </div>
-    </div>
+      <product-display :premium="premium"></product-display>
     </div>
 
     
-
     <!-- Import Main Js -->
     <script src="./main.js"></script>
+
+    <!-- Import Product Display -->
+    <script src="./components/ProductDisplay.js"></script>
 
     <!-- Import Mount App -->
     <script>
