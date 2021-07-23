@@ -11,37 +11,43 @@
     <link rel="stylesheet" href="./css/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+
+  </head>
 <body>
 
-    <div class="nav-bar"></div>
+    <div id="app">
+      <div class="nav-bar"></div>
 
     <div class="container">
         <div class="row">
             <div class="col-6 d-flex justify-content-center">
-                <img src="./images/lightblue_jean.jpg" alt="">
+                <img v-bind:src="image" alt="">
             </div>
             <div class="col-6">
                 <div class="add-info">
                     <ul>
                         <li class="sku-js">
                             <span>SKU:</span>
-                            <span class="value">445</span>
+                            <span class="value">{{ items[0].code }}</span>
                         </li>
                         <li>
                             <span>Availability:</span>
-                            <span class="value">In Stock</span>
+                            <span v-if="inStock" class="value">In Stock</span>
+                            <span v-else class="value">Out Of Stock</span>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="title">
-                    <h2>Premier Cropped Skinny Jean</h2>
+                    <h2>{{ name }}</h2>
                 </div>
                 
                 <div class="price">
                   <i class="fas fa-dollar-sign"></i>  
-                  <span>380</span>
+                  <span> {{ items[0].price }} </span>
                 </div>
 
                 <div class="rating">
@@ -54,27 +60,22 @@
 
                 <div class="title-option">
                     COLOR:
-                    <span> Light Blue</span>
+                    <span> {{ color }} </span>
                 </div>
 
                 <div class="image-option d-flex p-3">
-                    <div class="card m-2" style="width: 3rem;">
-                        <img src="./images/blue_jean.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card m-2" style="width: 3rem;">
-                        <img src="./images/pink_jean.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card m-2" style="width: 3rem;">
-                        <img src="./images/orange_jean.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card m-2" style="width: 3rem;">
-                        <img src="./images/lightblue_jean.jpg" class="card-img-top" alt="...">
+                    <div class="card m-2" style="width: 3rem;" v-for="item in items" :key="item.id" @mouseover="updateImage(item.image)">
+                        <img  v-bind:src="item.image"  class="card-img-top" alt="..." >
                     </div>
                 </div>
 
-                <div class="item">
-                    <input class="count-item" type="text" value="1">
-                    <button type="button" class="btn btn-primary btn-add-to-cart">
+                <div class="d-flex item">
+                    <div class="count-item"> {{ cart }} </div>
+                    <button 
+                      type="button" 
+                      class="btn btn-primary btn-add-to-cart" 
+                      v-on:click="addToCart"
+                    >
                         <i class="fas fa-shopping-bag"></i>
                         Add To Cart
                     </button>
@@ -83,6 +84,17 @@
             </div>
           </div>
     </div>
+    </div>
+
+    
+
+    <!-- Import Main Js -->
+    <script src="./main.js"></script>
+
+    <!-- Import Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
 </body>
 </html>
 
